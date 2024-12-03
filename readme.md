@@ -24,7 +24,7 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, e' necessario memoriz
 ## corsi_laurea : Table structure 
 - id | BIGINT - AUTO_INCREMENT - PK
 - dipartimento_id | BIGINT (UNISIGNED)
-- indirizzo | VARCHAR(50) - NOTNULL
+- corso | VARCHAR(50) - NOTNULL
 
 ## insegnanti : Table structure 
 - id | BIGINT - AUTO_INCREMENT - PK
