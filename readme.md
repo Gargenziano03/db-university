@@ -12,6 +12,7 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, e' necessario memoriz
 ## Table name 
 - dipartimento
 - corsi_laurea
+- corsi
 - insegnanti
 - appelli_esame
 - studente 
@@ -20,28 +21,50 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, e' necessario memoriz
 ## dipartimento : Table structure
 - id | BIGINT - AUTO_INCREMENT - PK
 - indirizzo | VARCHAR(50) - NOTNULL
+- capo_dipartimento | 
+- website 
+- phone 
+- email 
 
-## corsi_laurea : Table structure 
+## corsi_laurea : Table structure   (one to many -> departments)
 - id | BIGINT - AUTO_INCREMENT - PK
 - dipartimento_id | BIGINT (UNISIGNED)
-- corso | VARCHAR(50) - NOTNULL
+- name | VARCHAR(50) - NOTNULL
+- descrizione 
+- periodo
+
+## corso : Table structure 
+- id | BIGINT - AUTO_INCREMENT - PK
+- corsi_laure_id | BIGINT (UNISIGNED)
+- nome | VARCHAR(50) - NOTNULL
+- descrizione
+
+## corsi_insegnanti : Pivot
+- corsi_id 
+- insegnanti_id
 
 ## insegnanti : Table structure 
 - id | BIGINT - AUTO_INCREMENT - PK
-- corsi_laure_id | BIGINT (UNISIGNED)
 - nome | VARCHAR(20) - NOTNUALL
 - cognome | VARCHAR(20) - NOTNULL
 - materia | VARCHAR(20) - NOTNULL
 
 ## appelli_esame : Table structure 
 - id | BIGINT - AUTO_INCREMENT - PK
-- corsi_laure_id | BIGINT (UNISIGNED)
-- tipologia | VARCHAR(10) - NOTNULL
+- corso_id | BIGINT (UNISIGNED)
+- data
+- hour
 
-## studente : Table structure 
+## esame_student
+- appelli_esame_id
+- studente_id
+- vote
+
+## studente : Table structure  (one to many -> corsi_laurea)
 - id | BIGINT - AUTO_INCREMENT - PK
 - corsi_laure_id | BIGINT (UNISIGNED)
-- appelli_esame_id | BIGINT (UNISIGNED)
 - nome | VARCHAR(20) - NOTNUALL
 - cognome | VARCHAR(20) - NOTNULL
-
+- email
+- phone
+- matricola
