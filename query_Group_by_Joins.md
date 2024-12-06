@@ -1,5 +1,4 @@
 # GROUP BY 
-
 ## Contare quanti iscritti ci sono stati ogni anno
 ```sql
 SELECT COUNT(id) as `students`, `enrolment_date`
